@@ -6,7 +6,7 @@
 /*   By: stopp <stopp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:26:44 by stopp             #+#    #+#             */
-/*   Updated: 2023/11/23 15:54:47 by stopp            ###   ########.fr       */
+/*   Updated: 2023/11/23 18:44:31 by stopp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ char	*update_str(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str[1024];
+	static char	*str[10240];
 	char		*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1023)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 10240)
 		return (NULL);
 	str[fd] = rd_to_str(fd, str[fd]);
 	if (str[fd] == NULL)
