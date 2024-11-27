@@ -6,7 +6,7 @@
 /*   By: stopp <stopp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:01:46 by stopp             #+#    #+#             */
-/*   Updated: 2023/11/23 15:57:10 by stopp            ###   ########.fr       */
+/*   Updated: 2024/05/25 14:13:38 by stopp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*rd_to_str(int fd, char *str)
 
 	if (read(fd, 0, 0) < 0)
 		return (free(str), NULL);
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = malloc((BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
 	bytes = 1;
@@ -33,7 +33,7 @@ char	*rd_to_str(int fd, char *str)
 			return (NULL);
 		}
 		buf[bytes] = '\0';
-		str = ft_strjoin(str, buf);
+		str = ft_strjoin_gnl(str, buf);
 		if (str == NULL)
 			return (NULL);
 	}
@@ -115,18 +115,10 @@ char	*get_next_line(int fd)
 // int main(int argc, char *argv[])
 // {
 // 	int fd = open(argv[1], O_RDONLY);
-// 	char	*str = get_next_line(fd);
-
-// 	printf("next line: %s", str);
-// 	str = get_next_line(fd);
-// 	printf("next line: %s", str);
-// 	str = get_next_line(fd);
-// 	printf("next line: %s", str);
-// 	str = get_next_line(fd);
-// 	printf("next line: %s", str);
-// 	str = get_next_line(fd);
-// 	printf("next line: %s", str);
+// 	printf("next line: %s", get_next_line(fd));
+// 	printf("next line: %s", get_next_line(fd));
+// 	printf("next line: %s", get_next_line(fd));
+// 	printf("next line: %s", get_next_line(fd));
 // 	close (fd);
-// 	free (str);
 // 	return (0);
 // }

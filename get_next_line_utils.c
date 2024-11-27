@@ -6,7 +6,7 @@
 /*   By: stopp <stopp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:01:43 by stopp             #+#    #+#             */
-/*   Updated: 2023/11/23 15:31:34 by stopp            ###   ########.fr       */
+/*   Updated: 2024/05/16 12:28:45 by stopp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -58,9 +58,9 @@ char	*ft_strjoin(char *s1, char *s2)
 			return (NULL);
 		s1[0] = '\0';
 	}
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
-	nstr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	nstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (nstr == NULL)
 		return (NULL);
 	i = -1;
